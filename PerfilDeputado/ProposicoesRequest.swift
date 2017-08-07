@@ -50,4 +50,33 @@ class ProposicoesRequest{
         }
         
     }
+    
+    func serchWithDateRange (firstDate: Date, lastDate: Date, sigla: String, completion: @escaping (NSArray) -> ()) {
+        let yearFormatter = DateFormatter()
+        yearFormatter.dateFormat = "yyyy"
+        let thisYear = yearFormatter.string(from: Date()) //string armazena ano atual
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        
+        Alamofire.request(URL(string: serverURL)!, parameters: ["sigla":sigla, "ano":thisYear, "datApresentacaoIni":dateFormatter.string(from: firstDate), "datApresentacaoFim":dateFormatter.string(from: lastDate)]).responseJSON{ (response) in
+            
+            guard response.result.isSuccess else {
+                print("Erro")
+                completion(NSArray())
+                return
+            }
+            
+            let dictionary = response.result.value as? NSDictionary
+            if let proposicoes_dictionary = dictionary?["proposicoes"] as? NSDictionary {
+                let proposicoes_array = proposicoes_dictionary["proposicao"] as! NSArray
+                completion(proposicoes_array)
+            } else {
+                print("A Proposicao procurada nao existe")
+                completion(NSArray())
+            }
+        }
+        
+        
+    }
 }
