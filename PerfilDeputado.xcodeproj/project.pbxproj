@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		018EC8EADAC0643285BFB669 /* Pods_PerfilDeputado.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87995AA83CF5093D81C607DB /* Pods_PerfilDeputado.framework */; };
+		CC64E0631F38FB450034CA92 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC64E0621F38FB450034CA92 /* DateExtension.swift */; };
 		CC9662461F34F9C40008BA3F /* ProposicoesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9662451F34F9C40008BA3F /* ProposicoesRequest.swift */; };
 		CC9662481F34F9D20008BA3F /* DeputadosRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9662471F34F9D20008BA3F /* DeputadosRequest.swift */; };
 		CCE5E6B31F2FC8FD006CB1EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5E6B21F2FC8FD006CB1EF /* AppDelegate.swift */; };
@@ -21,6 +22,7 @@
 		60716DFEDFDD94BED136325D /* Pods-PerfilDeputado.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PerfilDeputado.release.xcconfig"; path = "Pods/Target Support Files/Pods-PerfilDeputado/Pods-PerfilDeputado.release.xcconfig"; sourceTree = "<group>"; };
 		87995AA83CF5093D81C607DB /* Pods_PerfilDeputado.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PerfilDeputado.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6FC4043C63C9969B3BA1573 /* Pods-PerfilDeputado.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PerfilDeputado.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PerfilDeputado/Pods-PerfilDeputado.debug.xcconfig"; sourceTree = "<group>"; };
+		CC64E0621F38FB450034CA92 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		CC9662451F34F9C40008BA3F /* ProposicoesRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposicoesRequest.swift; sourceTree = "<group>"; };
 		CC9662471F34F9D20008BA3F /* DeputadosRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeputadosRequest.swift; sourceTree = "<group>"; };
 		CCE5E6AF1F2FC8FD006CB1EF /* PerfilDeputado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PerfilDeputado.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +92,7 @@
 				CCE5E6B91F2FC8FD006CB1EF /* Assets.xcassets */,
 				CCE5E6BB1F2FC8FD006CB1EF /* LaunchScreen.storyboard */,
 				CCE5E6BE1F2FC8FD006CB1EF /* Info.plist */,
+				CC64E0621F38FB450034CA92 /* DateExtension.swift */,
 			);
 			path = PerfilDeputado;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCE5E6B51F2FC8FD006CB1EF /* ViewController.swift in Sources */,
+				CC64E0631F38FB450034CA92 /* DateExtension.swift in Sources */,
 				CCE5E6B31F2FC8FD006CB1EF /* AppDelegate.swift in Sources */,
 				CC9662481F34F9D20008BA3F /* DeputadosRequest.swift in Sources */,
 				CC9662461F34F9C40008BA3F /* ProposicoesRequest.swift in Sources */,

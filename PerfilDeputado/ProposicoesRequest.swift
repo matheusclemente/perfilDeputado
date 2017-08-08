@@ -51,15 +51,23 @@ class ProposicoesRequest{
         
     }
     
+    /**
+     Busca as proposicoes dentro do intervalo de tempo fornecido
+     - parameters:
+        - firstDate: Menor data desejada para a data de apresentação da proposição
+        - lastDate: Maior data desejada para a data de apresentação da proposição
+        - sigla: Sigla do tipo de proposição
+        - completion: Bloco de código a ser executado ao fim da requisicao
+    */
     func serchWithDateRange (firstDate: Date, lastDate: Date, sigla: String, completion: @escaping (NSArray) -> ()) {
         let yearFormatter = DateFormatter()
         yearFormatter.dateFormat = "yyyy"
-        let thisYear = yearFormatter.string(from: Date()) //string armazena ano atual
+        let year = yearFormatter.string(from: firstDate) //string armazena ano a ser buscado
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
         
-        Alamofire.request(URL(string: serverURL)!, parameters: ["sigla":sigla, "ano":thisYear, "datApresentacaoIni":dateFormatter.string(from: firstDate), "datApresentacaoFim":dateFormatter.string(from: lastDate)]).responseJSON{ (response) in
+        Alamofire.request(URL(string: serverURL)!, parameters: ["sigla":sigla, "ano":year, "datApresentacaoIni":dateFormatter.string(from: firstDate), "datApresentacaoFim":dateFormatter.string(from: lastDate)]).responseJSON{ (response) in
             
             guard response.result.isSuccess else {
                 print("Erro")
