@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		018EC8EADAC0643285BFB669 /* Pods_PerfilDeputado.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87995AA83CF5093D81C607DB /* Pods_PerfilDeputado.framework */; };
+		CC05F9801F3B84BA004E53B5 /* VotacoesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC05F97F1F3B84BA004E53B5 /* VotacoesRequest.swift */; };
+		CC0EC5891F3A342800BB9BF2 /* BuscaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0EC5881F3A342800BB9BF2 /* BuscaViewController.swift */; };
+		CC0EC58F1F3A3C4900BB9BF2 /* MonthYearPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0EC58E1F3A3C4900BB9BF2 /* MonthYearPickerView.swift */; };
 		CC64E0631F38FB450034CA92 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC64E0621F38FB450034CA92 /* DateExtension.swift */; };
 		CC9662461F34F9C40008BA3F /* ProposicoesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9662451F34F9C40008BA3F /* ProposicoesRequest.swift */; };
 		CC9662481F34F9D20008BA3F /* DeputadosRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9662471F34F9D20008BA3F /* DeputadosRequest.swift */; };
@@ -22,7 +25,10 @@
 		60716DFEDFDD94BED136325D /* Pods-PerfilDeputado.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PerfilDeputado.release.xcconfig"; path = "Pods/Target Support Files/Pods-PerfilDeputado/Pods-PerfilDeputado.release.xcconfig"; sourceTree = "<group>"; };
 		87995AA83CF5093D81C607DB /* Pods_PerfilDeputado.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PerfilDeputado.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6FC4043C63C9969B3BA1573 /* Pods-PerfilDeputado.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PerfilDeputado.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PerfilDeputado/Pods-PerfilDeputado.debug.xcconfig"; sourceTree = "<group>"; };
-		CC64E0621F38FB450034CA92 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		CC05F97F1F3B84BA004E53B5 /* VotacoesRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotacoesRequest.swift; sourceTree = "<group>"; };
+		CC0EC5881F3A342800BB9BF2 /* BuscaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuscaViewController.swift; sourceTree = "<group>"; };
+		CC0EC58E1F3A3C4900BB9BF2 /* MonthYearPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthYearPickerView.swift; sourceTree = "<group>"; };
+		CC64E0621F38FB450034CA92 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateExtension.swift; path = PerfilDeputado/DateExtension.swift; sourceTree = "<group>"; };
 		CC9662451F34F9C40008BA3F /* ProposicoesRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposicoesRequest.swift; sourceTree = "<group>"; };
 		CC9662471F34F9D20008BA3F /* DeputadosRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeputadosRequest.swift; sourceTree = "<group>"; };
 		CCE5E6AF1F2FC8FD006CB1EF /* PerfilDeputado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PerfilDeputado.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,10 +69,43 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CC0EC58B1F3A3BE500BB9BF2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CC0EC5881F3A342800BB9BF2 /* BuscaViewController.swift */,
+				CCE5E6B41F2FC8FD006CB1EF /* ViewController.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		CC0EC58C1F3A3C0800BB9BF2 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				CC9662471F34F9D20008BA3F /* DeputadosRequest.swift */,
+				CC9662451F34F9C40008BA3F /* ProposicoesRequest.swift */,
+				CC05F97F1F3B84BA004E53B5 /* VotacoesRequest.swift */,
+			);
+			name = Requests;
+			sourceTree = "<group>";
+		};
+		CC0EC58D1F3A3C2100BB9BF2 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				CCE5E6B21F2FC8FD006CB1EF /* AppDelegate.swift */,
+				CCE5E6B61F2FC8FD006CB1EF /* Main.storyboard */,
+				CCE5E6B91F2FC8FD006CB1EF /* Assets.xcassets */,
+				CCE5E6BB1F2FC8FD006CB1EF /* LaunchScreen.storyboard */,
+				CCE5E6BE1F2FC8FD006CB1EF /* Info.plist */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
 		CCE5E6A61F2FC8FD006CB1EF = {
 			isa = PBXGroup;
 			children = (
 				CCE5E6B11F2FC8FD006CB1EF /* PerfilDeputado */,
+				CC64E0621F38FB450034CA92 /* DateExtension.swift */,
+				CC0EC58E1F3A3C4900BB9BF2 /* MonthYearPickerView.swift */,
 				CCE5E6B01F2FC8FD006CB1EF /* Products */,
 				788568323A80CE6FD2187A05 /* Pods */,
 				8952F156804E63560D1124FA /* Frameworks */,
@@ -84,15 +123,9 @@
 		CCE5E6B11F2FC8FD006CB1EF /* PerfilDeputado */ = {
 			isa = PBXGroup;
 			children = (
-				CCE5E6B21F2FC8FD006CB1EF /* AppDelegate.swift */,
-				CCE5E6B41F2FC8FD006CB1EF /* ViewController.swift */,
-				CC9662471F34F9D20008BA3F /* DeputadosRequest.swift */,
-				CC9662451F34F9C40008BA3F /* ProposicoesRequest.swift */,
-				CCE5E6B61F2FC8FD006CB1EF /* Main.storyboard */,
-				CCE5E6B91F2FC8FD006CB1EF /* Assets.xcassets */,
-				CCE5E6BB1F2FC8FD006CB1EF /* LaunchScreen.storyboard */,
-				CCE5E6BE1F2FC8FD006CB1EF /* Info.plist */,
-				CC64E0621F38FB450034CA92 /* DateExtension.swift */,
+				CC0EC58C1F3A3C0800BB9BF2 /* Requests */,
+				CC0EC58B1F3A3BE500BB9BF2 /* Views */,
+				CC0EC58D1F3A3C2100BB9BF2 /* Core */,
 			);
 			path = PerfilDeputado;
 			sourceTree = "<group>";
@@ -221,11 +254,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC0EC58F1F3A3C4900BB9BF2 /* MonthYearPickerView.swift in Sources */,
 				CCE5E6B51F2FC8FD006CB1EF /* ViewController.swift in Sources */,
 				CC64E0631F38FB450034CA92 /* DateExtension.swift in Sources */,
 				CCE5E6B31F2FC8FD006CB1EF /* AppDelegate.swift in Sources */,
 				CC9662481F34F9D20008BA3F /* DeputadosRequest.swift in Sources */,
+				CC05F9801F3B84BA004E53B5 /* VotacoesRequest.swift in Sources */,
 				CC9662461F34F9C40008BA3F /* ProposicoesRequest.swift in Sources */,
+				CC0EC5891F3A342800BB9BF2 /* BuscaViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

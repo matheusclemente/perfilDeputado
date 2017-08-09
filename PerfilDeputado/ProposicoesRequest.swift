@@ -11,7 +11,8 @@ import Alamofire
 
 class ProposicoesRequest{
     let serverURL = "http://localhost:3000/proposicoes"
-    
+    let serverURLvotadas = "http://localhost:3000/proposicoesVotadasEmPlenario"
+
 
     
     func searchPLs(year: String, by deputado: NSDictionary, completion: @escaping (NSArray) -> ()) {
@@ -59,7 +60,7 @@ class ProposicoesRequest{
         - sigla: Sigla do tipo de proposição
         - completion: Bloco de código a ser executado ao fim da requisicao
     */
-    func serchWithDateRange (firstDate: Date, lastDate: Date, sigla: String, completion: @escaping (NSArray) -> ()) {
+    func searchWithDateRange (firstDate: Date, lastDate: Date, sigla: String, completion: @escaping (NSArray) -> ()) {
         let yearFormatter = DateFormatter()
         yearFormatter.dateFormat = "yyyy"
         let year = yearFormatter.string(from: firstDate) //string armazena ano a ser buscado
@@ -77,14 +78,41 @@ class ProposicoesRequest{
             
             let dictionary = response.result.value as? NSDictionary
             if let proposicoes_dictionary = dictionary?["proposicoes"] as? NSDictionary {
-                let proposicoes_array = proposicoes_dictionary["proposicao"] as! NSArray
-                completion(proposicoes_array)
+                if let proposicoes_array = proposicoes_dictionary["proposicao"] as? NSArray {
+                    completion(proposicoes_array)
+                } else { //Caso a requisição retorne uma única proposicao, insere-a em um array
+                    let proposicoes_array: NSArray = [proposicoes_dictionary["proposicao"] as! NSDictionary]
+                    completion(proposicoes_array)
+                }
             } else {
                 print("A Proposicao procurada nao existe")
                 completion(NSArray())
             }
         }
         
-        
+    }
+    
+    func buscarProposicoesVotadas(ano: String, tipo: String, completion: @escaping (NSArray) -> ()) {
+        Alamofire.request(URL(string: serverURLvotadas)!, parameters: ["ano":ano, "tipo":tipo]).responseJSON { response in
+            
+            guard response.result.isSuccess else {
+                print("Erro: \(String(describing: response.error))")
+                completion(NSArray())
+                return
+            }
+            
+            let dictionary = response.result.value as? NSDictionary
+            if let proposicoes_dictionary = dictionary?["proposicoes"] as? NSDictionary {
+                if let proposicoes_array = proposicoes_dictionary["proposicao"] as? NSArray {
+                    completion(proposicoes_array)
+                } else { //Caso a requisição retorne uma única proposicao, insere-a em um array
+                    let proposicoes_array: NSArray = [proposicoes_dictionary["proposicao"] as! NSDictionary]
+                    completion(proposicoes_array)
+                }
+            } else {
+                print("A Proposicao procurada nao existe")
+                completion(NSArray())
+            }
+        }
     }
 }

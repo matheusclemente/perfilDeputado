@@ -7,3 +7,8 @@
 //
 
 import Foundation
+import Alamofire
+
+class VotacoesRequest {
+    let serverURLvotos = "http://localhost:3000/votosProposicao"
+}

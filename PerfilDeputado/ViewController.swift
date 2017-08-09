@@ -30,7 +30,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         let dep_req = DeputadosRequest()
-        let prop_req = ProposicoesRequest()
         var dep_array = NSArray()
 
         dep_req.getAllDeputados(completion: { array in
@@ -38,10 +37,6 @@ class ViewController: UIViewController {
             dep_req.getSelectedDeputado(deputados_array: dep_array, deputadoID: "160510", completion: { deputado in
                 print(deputado)
                 self.selectedDeputado = deputado
-                
-                prop_req.searchPLs(year: "2017",completion: { proposicoesArray in
-                    print(proposicoesArray.count)
-                })
           
                 
                 self.setLabels()
