@@ -32,6 +32,15 @@ class ViewController: UIViewController {
         let dep_req = DeputadosRequest()
         var dep_array = NSArray()
 
+        
+        //teste votacoesrequest
+        let votacoes_req = VotacoesRequest()
+        votacoes_req.buscarVotacoes(tipo: "pl", numero: "6787", ano: "2016") { (array) in
+            print("Votacoes: \(array.count)")
+            print(array)
+        }
+        //-------
+        
         dep_req.getAllDeputados(completion: { array in
             dep_array = array
             dep_req.getSelectedDeputado(deputados_array: dep_array, deputadoID: "160510", completion: { deputado in
