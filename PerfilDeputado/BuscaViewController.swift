@@ -36,7 +36,7 @@ class BuscaViewController: UIViewController {
             let date = calendar.date(from: dateComponents) {
             print("Buscando")
             let prop_req = ProposicoesRequest()
-            prop_req.searchWithDateRange(firstDate: date.startOfMonth(), lastDate: date.endOfMonth(), sigla: "pl", completion: { array in
+            prop_req.searchWithDateRange(firstDate: date.startOfMonth(), lastDate: date.endOfMonth(), sigla: "pl", ufAutor: "DF",completion: { array in
                 print(array)
                 self.numProposLabel.text = "Proposições encontradas: \(array.count)"
             })

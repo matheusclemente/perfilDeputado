@@ -33,9 +33,15 @@ class ViewController: UIViewController {
         var dep_array = NSArray()
 
         
+        //teste deputados por partido
+            dep_req.filterDeputados(partido: "PSD") { (array) in
+                print("Deputados:\(array.count)")
+        }
+        
+        //
         //teste votacoesrequest
         let votacoes_req = VotacoesRequest()
-        votacoes_req.buscarVotacoes(tipo: "pl", numero: "6787", ano: "2016") { (array) in
+        votacoes_req.searchVotacoes(tipo: "pl", numero: "6787", ano: "2017") { (array) in
             print("Votacoes: \(array.count)")
             print(array)
         }

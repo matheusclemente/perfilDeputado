@@ -12,7 +12,7 @@ import Alamofire
 class VotacoesRequest {
     let serverURLvotos = "http://localhost:3000/votosProposicao"
     
-    func buscarVotacoes(tipo: String, numero: String, ano: String, completion: @escaping (NSArray) -> ()) {
+    func searchVotacoes(tipo: String, numero: String, ano: String, completion: @escaping (NSArray) -> ()) {
         Alamofire.request(URL(string: serverURLvotos)!, parameters: ["tipo":tipo, "numero":numero, "ano":ano]).responseJSON { response in
             
             guard response.result.isSuccess else {
@@ -31,7 +31,7 @@ class VotacoesRequest {
                     completion(votacoes_array)
                 }
             } else {
-                print("A Proposicao procurada nao existe")
+                print("Não há votacões para a proposição")
                 completion(NSArray())
             }
         }

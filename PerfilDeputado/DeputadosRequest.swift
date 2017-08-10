@@ -11,6 +11,7 @@ import Alamofire
 
 class DeputadosRequest{
     let serverURL = "http://localhost:3000/allDeputados"
+    let serverURLdeputados = "http://localhost:3000/deputados"
     
     /**
      Executa requisição para lista completa dos deputados da legislatura atual
@@ -42,6 +43,22 @@ class DeputadosRequest{
                 if deputado["ideCadastro"] as? String == deputadoID {
                     completion(deputado)
                 }
+            }
+        }
+    }
+    
+    func filterDeputados (partido: String, completion: @escaping(NSArray) -> ()) {
+        Alamofire.request(URL(string:serverURLdeputados)!, parameters: ["partido": partido] ).responseJSON{ (response) in
+            guard response.result.isSuccess else {
+                print("Erro")
+                completion(NSArray())
+                return
+            }
+            if let deputados_array = response.result.value as? NSArray{
+                completion(deputados_array)
+            } else {
+                print("Erro ao buscar deputados")
+                completion(NSArray())
             }
         }
     }

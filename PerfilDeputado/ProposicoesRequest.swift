@@ -60,7 +60,7 @@ class ProposicoesRequest{
         - sigla: Sigla do tipo de proposição
         - completion: Bloco de código a ser executado ao fim da requisicao
     */
-    func searchWithDateRange (firstDate: Date, lastDate: Date, sigla: String, completion: @escaping (NSArray) -> ()) {
+    func searchWithDateRange (firstDate: Date, lastDate: Date, sigla: String, ufAutor: String? = nil,completion: @escaping (NSArray) -> ()) {
         let yearFormatter = DateFormatter()
         yearFormatter.dateFormat = "yyyy"
         let year = yearFormatter.string(from: firstDate) //string armazena ano a ser buscado
@@ -68,7 +68,14 @@ class ProposicoesRequest{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
         
-        Alamofire.request(URL(string: serverURL)!, parameters: ["sigla":sigla, "ano":year, "datApresentacaoIni":dateFormatter.string(from: firstDate), "datApresentacaoFim":dateFormatter.string(from: lastDate)]).responseJSON{ (response) in
+        var parametersDicitionary = ["sigla":sigla, "ano":year, "datApresentacaoIni":dateFormatter.string(from: firstDate), "datApresentacaoFim":dateFormatter.string(from: lastDate)]
+        
+        if (ufAutor != nil) {
+            parametersDicitionary["siglaufautor"] = ufAutor
+        }
+        
+        
+        Alamofire.request(URL(string: serverURL)!, parameters: parametersDicitionary).responseJSON{ (response) in
             
             guard response.result.isSuccess else {
                 print("Erro")
@@ -92,7 +99,7 @@ class ProposicoesRequest{
         
     }
     
-    func buscarProposicoesVotadas(ano: String, tipo: String, completion: @escaping (NSArray) -> ()) {
+    func searchProposicoesVotadas(ano: String, tipo: String, completion: @escaping (NSArray) -> ()) {
         Alamofire.request(URL(string: serverURLvotadas)!, parameters: ["ano":ano, "tipo":tipo]).responseJSON { response in
             
             guard response.result.isSuccess else {
